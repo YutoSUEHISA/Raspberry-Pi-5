@@ -1,2 +1,2 @@
 # Raspberry-Pi-5
-Setting Up the Raspberry Pi 5 and Installing Cefore
+Raspberry Pi 5のセットアップ方法とCeforeの導入について
