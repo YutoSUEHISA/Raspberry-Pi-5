@@ -60,4 +60,4 @@ sudo apt upgrade
 
 ## 参考リンク
 - [公式セットアップガイド](https://www.raspberrypi.com/documentation/computers/getting-started.html)
-- [日本語化](https://note.com/coderdojoseishin/n/n18cade0e500e#3231e5f7-cc4b-4dd1-a937-049abb0909f4)
+- [日本語化](https://higmasan.com/iot/raspberrypi/raspberrypi5/make-raspberry-pi-5-into-japanese-environment/)
