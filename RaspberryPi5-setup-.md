@@ -2,7 +2,7 @@
 # Raspberry Pi 5 セットアップ手順
 
 ---
-作成者: Yuto SUEHISA  作成日: 2025年10月3日  更新日: 2025年10月8日
+作成者: Yuto SUEHISA  作成日: 2025年10月7日  更新日: 2025年10月8日
 ---
 
 ## 必要なもの
@@ -73,29 +73,7 @@ sudo systemctl start systemd-timesyncd
 ```bash
 sudo apt update
 sudo apt upgrade
-```
-
-
-
-## シェルスクリプト（.sh）の作成と実行
-1. シェルスクリプトを作成（例：hoge.sh）
-	```bash
-	sudo nano hoge.sh
-	# 使用頻度が高い一連のコマンドを記述
-	```
-2. rootユーザーに切り替え
-	```bash
-	sudo su
-	```
-3. スクリプトを実行
-	```bash
-	. hoge.sh
-	```
-4. rootユーザーから抜ける
-	```bash
-	exit
-	```
-
+```  
 
 ## 参考リンク
 - [公式セットアップガイド](https://www.raspberrypi.com/documentation/computers/getting-started.html)
