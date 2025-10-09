@@ -3,7 +3,7 @@
 # Cefore セットアップ手順まとめ
 
 ---
-作成者: Yuto SUEHISA  作成日: 2025年10月8日  更新日: 2025年10月8日
+作成者: Yuto SUEHISA  作成日: 2025年10月8日  更新日: 2025年10月9日
 ---
 
 
@@ -13,20 +13,17 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
 
 ## 2. 必要な環境・前提条件
 - OS: Raspberry Pi OS, Linux, macOS, Windows（推奨はLinux）
-- Git
-- CMake
-- GCCまたはClang
-- OpenSSL
-- Boostライブラリ
+- USB（解凍済みファイルをRaspberry Piへ移すため）
+-ネットワークへの接続（ライブラリのインストールのため）
 - その他依存パッケージ（詳細は公式リポジトリ参照）
 
 
 ## 3. インストール手順
-1. 必要なパッケージのインストール（例: Raspberry Pi OS）
-   - 事前に解凍したファイルをUSBにコピー
-   - USBをRaspberry Piに挿入し、`/home/ユーザー名`に配置
+1. [必要なパッケージのインストール](https://github.com/cefore/cefore/releases)（例: Raspberry Pi OS）
+- 事前に解凍したファイルをUSBにコピー
+- USBをRaspberry Piに挿入し、`/home/ユーザー名`に配置
 
-2. ライブラリのインストール
+2. ライブラリのインストール（ネットワークへの接続必）
    ```sh
    sudo apt-get install libssl-dev automake
    ```
@@ -43,7 +40,16 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
    ```
 
 
-## 4. アンインストール手順
+
+## 4. 動作確認方法
+   ```sh
+   sudo cefnetdstart
+   cefstatus
+   sudo cefnetdstop
+   ```
+
+
+## 5. アンインストール手順
 1. ceforeディレクトリに移動
    ```sh
    cd cefore-x.x.x
@@ -55,27 +61,7 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
 3. `/usr/local/bin`から実行ファイルが消えているか確認
 
 
-## 5. 動作確認方法
-1. Ceforeのバージョン確認
-   ```sh
-   cefgetfile -v
-   ```
-2. サンプル通信の実行
-   - 公式ドキュメントのサンプルコマンドを参照してください。
-
-
-## 6. トラブルシューティング
-- 依存パッケージの不足エラーが出る場合は、エラーメッセージに従い追加でインストールしてください。
-- ビルドエラー時はCMakeやBoostのバージョンを確認してください。
-- 詳細なエラー内容は`build`ディレクトリ内のログを参照してください。
-
-
-## 7. 参考リンク
-- [Cefore公式GitHubリポジトリ](https://github.com/cefore/cefore)
-- [Cefore公式ドキュメント](https://cefore.net/)
-
-
-## 8. 固定IPアドレスの割り当て方法（nmtuiを使用）
+## 6. 固定IPアドレスの割り当て方法（nmtuiを使用）
 1. ターミナルで以下を実行：
    ```sh
    sudo nmtui
@@ -96,3 +82,20 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
    hostname -I
    ```
    先ほど設定した固定IPが表示されれば成功です。
+
+
+## 7. トラブルシューティング
+- `autoconf`に失敗する場合は，`aclocal`を実行．
+- `make`の実行中に同じコードが流れている場合は，`Ctrl+C`で処理を停止する．`make clean`を実行し再度`make`を実行する．  
+- `make`の実行中に未来時刻に関するメッセージが表示された場合は，時刻同期を行う必要がある．    
+   ```bash
+   sudo systemctl stop systemd-timesyncd
+   sudo timedatectl set-time "yyyy-mm-dd hh:mm:ss"
+   sudo systemctl start systemd-timesyncd
+   ```
+
+
+## 8. 参考リンク
+- [Cefore公式GitHubリポジトリ](https://github.com/cefore/cefore)
+- [Cefore公式ドキュメント](https://cefore.net/)
+
