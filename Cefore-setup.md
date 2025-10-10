@@ -20,7 +20,7 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
 
 ## 3. インストール手順
 1. [必要なパッケージのインストール](https://github.com/cefore/cefore/releases)（例: Raspberry Pi OS）
-- 事前に解凍したファイルをUSBにコピー
+- zipファイルをUSBにコピー
 - USBをRaspberry Piに挿入し、`/home/ユーザー名`に配置
 
 2. ライブラリのインストール（ネットワークへの接続必）
@@ -29,7 +29,9 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
    ```
 
 3. ビルド
-   ```sh
+   ```sh  
+   unzip cefore-x.x.x.zip # zipファイルを解凍
+   cd cefore-x.x.x
    aclocal
    autoconf
    automake
@@ -50,34 +52,35 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
 
 
 ## 5. アンインストール手順
-1. ceforeディレクトリに移動
+1. ceforeディレクトリに移動：
    ```sh
    cd cefore-x.x.x
    ```
-2. アンインストールを実行
+2. アンインストールを実行：
    ```sh
    sudo make uninstall
    ```
 3. `/usr/local/bin`から実行ファイルが消えているか確認
 
 
-## 6. 固定IPアドレスの割り当て方法（nmtuiを使用）
-1. ターミナルで以下を実行：
+## 6. 固定IPアドレスの割り当て方法（nmtuiを使用）  
+1. LANケーブルを接続
+2. ターミナルで以下を実行：
    ```sh
    sudo nmtui
    ```
-2. 表示されたメニューから「Edit a connection」を選択
-3. 「Wired connection 1」（またはeth0に対応する接続名）を選択し、編集モードへ
-4. 「SHOW」を選択してアドレス欄を編集できるようにし、以下を入力：
+3. 表示されたメニューから「Edit a connection」を選択
+4. 「Wired connection 1」（またはeth0に対応する接続名）を選択し、編集モードへ
+5. 「SHOW」を選択してアドレス欄を編集できるようにし、以下を入力：
    - Addresses: `192.168.1.x/24`
    - Gateway: `192.168.1.1`
    - DNS servers: `8.8.8.8,1.1.1.1`
-5. 設定を保存してメニューを抜ける
-6. NetworkManagerを再起動して設定を適用：
+6. 設定を保存してメニューを抜ける
+7. NetworkManagerを再起動して設定を適用：
    ```sh
    sudo systemctl restart NetworkManager
    ```
-7. 設定が適用されたか確認：
+8. 設定が適用されたか確認：
    ```sh
    hostname -I
    ```
