@@ -1,9 +1,9 @@
 
 # Raspberry Pi 5 セットアップ手順
 
----
-作成者: Yuto SUEHISA  作成日: 2025年10月7日  更新日: 2025年10月8日
----
+
+<p style="color:#6b7280; font-size:0.85rem; margin:0; opacity:0.8;">作成者: Yuto SUEHISA&nbsp;&nbsp;更新日: 2025年10月10日</p>
+
 
 ## 必要なもの
 - Raspberry Pi 5 本体（今回は8GB RAMを使用）
@@ -75,6 +75,8 @@ sudo apt update
 sudo apt upgrade
 ```  
 
+
 ## 参考リンク
 - [公式セットアップガイド](https://www.raspberrypi.com/documentation/computers/getting-started.html)
 - [日本語化手順](https://higmasan.com/iot/raspberrypi/raspberrypi5/make-raspberry-pi-5-into-japanese-environment/)
+- [Raspberry Pi 5 スターターキット/コンプリートキット 組み立て](https://www.switch-science.com/pages/pi5assy?srsltid=AfmBOopoUlmHAQ2BjKSIik8BoL_TY1Tk25WjZD8TiRxkAN-faqHfmMSP)
