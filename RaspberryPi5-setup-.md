@@ -2,7 +2,7 @@
 # Raspberry Pi 5 セットアップ手順
 
 
-<p style="color:#6b7280; font-size:0.85rem; margin:0; opacity:0.8;">作成者: Yuto SUEHISA&nbsp;&nbsp;更新日: 2025年10月10日</p>
+<p style="color:#6b7280; font-size:0.85rem; margin:0; opacity:0.8;">作成者: Yuto SUEHISA&nbsp;&nbsp;更新日: 2025-10-10</p>
 
 
 ## 必要なもの
