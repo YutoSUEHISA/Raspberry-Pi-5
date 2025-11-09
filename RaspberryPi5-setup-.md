@@ -2,7 +2,7 @@
 # Raspberry Pi 5 セットアップ手順
 
 
-<p style="color:#6b7280; font-size:0.85rem; margin:0; opacity:0.8;">作成者: Yuto SUEHISA&nbsp;&nbsp;更新日: 2025-10-10</p>
+<p style="color:#6b7280; font-size:0.85rem; margin:0; opacity:0.8;">作成者: Yuto SUEHISA&nbsp;&nbsp;更新日: 2025/11/09</p>
 
 
 ## 必要なもの
@@ -41,11 +41,11 @@
 
 ## ネットワーク設定
 
-### 有線ネットワークへの固定IP割り当て
+### 学内ネットワークへの固定IP割り当て
 ```bash
-nmcli con modify "Wired connection 1" ipv4.addresses "192.168.1.50/24"
-nmcli con modify "Wired connection 1" ipv4.gateway "192.168.1.1"
-nmcli con modify "Wired connection 1" ipv4.dns "8.8.8.8 1.1.1.1"
+nmcli con modify "Wired connection 1" ipv4.addresses "133.80.180.19/24"
+nmcli con modify "Wired connection 1" ipv4.gateway "133.80.180.254"
+nmcli con modify "Wired connection 1" ipv4.dns "133.80.153.2 133.80.11.100"
 nmcli con modify "Wired connection 1" ipv4.method manual
 nmcli con up "Wired connection 1"
 ```
@@ -75,8 +75,12 @@ sudo apt update
 sudo apt upgrade
 ```  
 
+## トラブルシューティング  
+- 学内ネットワークへ接続できない場合は，デスクトップPC(os:windows)にEthernetを繋ぎ，`コマンドプロンプト`から`ipconfig /all`を入力し，`ipアドレス，サブネットマスク，デフォルトゲートウェイ，DNSサーバ`を確認する．
+
 
 ## 参考リンク
 - [公式セットアップガイド](https://www.raspberrypi.com/documentation/computers/getting-started.html)
 - [日本語化手順](https://higmasan.com/iot/raspberrypi/raspberrypi5/make-raspberry-pi-5-into-japanese-environment/)
-- [Raspberry Pi 5 スターターキット/コンプリートキット 組み立て](https://www.switch-science.com/pages/pi5assy?srsltid=AfmBOopoUlmHAQ2BjKSIik8BoL_TY1Tk25WjZD8TiRxkAN-faqHfmMSP)
+- [Raspberry Pi 5 スターターキット/コンプリートキット 組み立て](https://www.switch-science.com/pages/pi5assy?srsltid=AfmBOopoUlmHAQ2BjKSIik8BoL_TY1Tk25WjZD8TiRxkAN-faqHfmMSP)  
+- [IPアドレスを確認する方法](https://solutions.vaio.com/5615#:~:text=%E3%80%8C%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%80%8D%E3%81%8B%E3%82%89%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%20*%20%E3%80%8C%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%80%8D%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%81%97%E3%81%A6%E3%80%81%E6%A4%9C%E7%B4%A2%E7%AA%93%E3%81%AB%E3%80%8C%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%80%8D%E3%81%A8%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%20*%20%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%E3%81%AB%E3%80%8C%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%80%8D%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%A7%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%20*%20%E3%80%8C%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%80%8D%E7%94%BB%E9%9D%A2%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82,%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1%20%E3%80%8CIPv6%20%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%80%8D%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AF%E3%80%81IPv6%E3%81%AEIP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%81%8C%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E3%82%89%E3%82%8C%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%20*%20%E7%A2%BA%E8%AA%8D%E5%BE%8C%E3%80%8Cexit%EF%BD%A3%E3%81%A8%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%A6%E3%80%90Enter%E3%80%91%E3%82%AD%E3%83%BC%E3%82%92%E6%8A%BC%E3%81%97%E3%80%81%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E7%94%BB%E9%9D%A2%E3%82%92%E7%B5%82%E4%BA%86%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%20%E4%BB%A5%E4%B8%8A%E3%81%A7%E6%93%8D%E4%BD%9C%E3%81%AF%E5%AE%8C%E4%BA%86%E3%81%A7%E3%81%99%E3%80%82%20%E2%80%BB%E3%82%AB%E3%83%83%E3%82%B3%E5%86%85%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%97%E3%81%A6%E3%81%94%E5%88%A9%E7%94%A8%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82)  
