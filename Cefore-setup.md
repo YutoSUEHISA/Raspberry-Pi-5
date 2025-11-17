@@ -35,8 +35,8 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
    aclocal
    autoconf
    automake
-   ./configure --enable-csmgr --enable-cache  # csmgr,ローカルキャッシュを有効化
-   make
+   ./configure --enable-csmgr --enable-cache --enable-debug  # csmgr,Local Cache,出力ログの詳細度を有効化
+   sudo make
    sudo make install
    sudo ldconfig
    ```
@@ -95,7 +95,8 @@ Ceforeは、分散型ファイルシステムやネットワーク通信の研�
    sudo systemctl stop systemd-timesyncd
    sudo timedatectl set-time "yyyy-mm-dd hh:mm:ss"
    sudo systemctl start systemd-timesyncd
-   ```
+   ```  
+- Pluginを追加する場合は，`make clean`を実行した後に`./configure`から`sudo ldconfig`までを再実行．
 
 
 ## 8. 参考リンク
